@@ -5,10 +5,12 @@ abstract class Routes {
   Routes._();
   static const VANUEDETAILSVIEW = _Paths.VANUEDETAILSVIEW;
   static const BUSINESSTYPEVIEW = _Paths.BUSINESSTYPEVIEW;
+  static const FEATURESDETAILSVIEW = _Paths.FEATURESDETAILSVIEW;
 }
 
 abstract class _Paths {
   _Paths._();
   static const VANUEDETAILSVIEW = '/vanuedetailsview';
   static const BUSINESSTYPEVIEW = '/businesstypeview';
+  static const FEATURESDETAILSVIEW = '/featuresdetailsview';
 }

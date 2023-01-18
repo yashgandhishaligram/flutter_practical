@@ -12,29 +12,29 @@ class CustomFormFieldItem extends StatelessWidget {
   final String? title;
   final String? subTittle;
   final GestureTapCallback? onTap;
-  final List? selectedValues;
+  final String? selectedValues;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         SizedBox(
-            height: 20,
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(title.toString(),
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700)),
+              GestureDetector(
+                  onTap: onTap,
+                  child: Text("Change",
+                      style: TextStyle(fontSize: 18, color: Colors.lightBlue[500],fontWeight: FontWeight.w600))),
+            ],
           ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(title.toString(),
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700)),
-            GestureDetector(
-                onTap: onTap,
-                child: Text("Change",
-                    style: TextStyle(fontSize: 18, color: Colors.blueAccent,fontWeight: FontWeight.w600))),
-          ],
         ),
         SizedBox(
           height: 8,
@@ -55,7 +55,9 @@ class CustomFormFieldItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.0)
           ),
           child: Text(
-            selectedValues![0].toString(),
+            selectedValues! == null || selectedValues == "" ?
+                "Select business type" :
+            selectedValues!.toString(),
             style: TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.w400),
           ),
         )
